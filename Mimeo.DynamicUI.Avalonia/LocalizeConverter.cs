@@ -1,0 +1,43 @@
+﻿using Avalonia.Data.Converters;
+using Microsoft.Extensions.Localization;
+using System;
+using System.Globalization;
+using System.Linq;
+
+namespace Mimeo.DynamicUI.Avalonia
+{
+    public class LocalizeOrEmptyConverter : IValueConverter
+    {
+        public LocalizeOrEmptyConverter(IStringLocalizer stringLocalizer)
+        {
+            this.stringLocalizer = stringLocalizer;
+        }
+
+        private readonly IStringLocalizer stringLocalizer;
+
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            if (value is string stringValue)
+            {
+                var localized = stringLocalizer[stringValue];
+                if (stringValue == localized)
+                {
+                    return string.Empty;
+                }
+
+                return localized;
+            }
+
+            return value;
+        }
+
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            if (value is string stringValue)
+            {
+                return stringLocalizer.GetAllStrings().FirstOrDefault(s => s.Value == stringValue)?.Name ?? value;
+            }
+            return value;
+        }
+    }
+}

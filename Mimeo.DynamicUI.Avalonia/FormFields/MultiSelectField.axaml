@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:localFormFields="clr-namespace:Mimeo.DynamicUI.Avalonia.FormFields;assembly=Mimeo.DynamicUI.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Mimeo.DynamicUI.Avalonia.MultiSelectField"
+			 x:Name="MultiSelectFieldElement">
+	<ItemsControl x:Name="ItemsControl" ItemsSource="{Binding #MultiSelectFieldElement.Items}">
+		<ItemsControl.ItemTemplate>
+			<DataTemplate>
+				<CheckBox Content="{Binding Name, Converter={StaticResource StringLocalizer}}"
+							 IsChecked="{Binding IsSelected}">
+					<CheckBox.IsEnabled>
+						<MultiBinding Converter="{x:Static BoolConverters.Or}">
+							<Binding Path="!#MultiSelectFieldElement.DataContext.FormFieldDefinition.ReadOnly" />
+							<Binding Path="!#MultiSelectFieldElement.DataContext.FormFieldDefinition.Disabled" />
+						</MultiBinding>
+					</CheckBox.IsEnabled>
+				</CheckBox>
+			</DataTemplate>
+		</ItemsControl.ItemTemplate>
+	</ItemsControl>
+</UserControl>

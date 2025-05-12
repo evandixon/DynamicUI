@@ -9,6 +9,7 @@ public class DynamicField : ComponentBase
     private static readonly Dictionary<FormFieldType, Type> formFieldTypeMap = new()
     {
         { FormFieldType.Text, typeof(TextField) },
+        { FormFieldType.Combobox, typeof(TextField) },
         { FormFieldType.Checkbox, typeof(CheckboxField) },
         { FormFieldType.SingleSelect, typeof(SingleSelectField) },
         { FormFieldType.MultiSelect, typeof(MultiSelectField) },

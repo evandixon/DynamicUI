@@ -4,6 +4,7 @@
     {
         Hidden = 0,
         Text,
+        Combobox,
         Checkbox,
         SingleSelect,
         SingleSelectDropdown,

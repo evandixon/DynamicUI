@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mimeo.DynamicUI.Demo.Client
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mimeo.DynamicUI.Demo.Shared", "Mimeo.DynamicUI.Demo\Mimeo.DynamicUI.Demo.Shared\Mimeo.DynamicUI.Demo.Shared.csproj", "{53F61699-5BAB-46CB-AE3E-15282013E171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mimeo.DynamicUI.Demo.Avalonia", "Mimeo.DynamicUI.Demo.Avalonia\Mimeo.DynamicUI.Demo.Avalonia.csproj", "{6386F811-10A2-410C-8BEA-64F7FADD277C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mimeo.DynamicUI.Avalonia", "Mimeo.DynamicUI.Avalonia\Mimeo.DynamicUI.Avalonia.csproj", "{08CA7287-B2A9-5A87-41DC-25A5A29A0A80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,14 @@ Global
 		{53F61699-5BAB-46CB-AE3E-15282013E171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53F61699-5BAB-46CB-AE3E-15282013E171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53F61699-5BAB-46CB-AE3E-15282013E171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6386F811-10A2-410C-8BEA-64F7FADD277C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6386F811-10A2-410C-8BEA-64F7FADD277C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6386F811-10A2-410C-8BEA-64F7FADD277C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6386F811-10A2-410C-8BEA-64F7FADD277C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08CA7287-B2A9-5A87-41DC-25A5A29A0A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08CA7287-B2A9-5A87-41DC-25A5A29A0A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08CA7287-B2A9-5A87-41DC-25A5A29A0A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08CA7287-B2A9-5A87-41DC-25A5A29A0A80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +79,7 @@ Global
 		{5D2D73C3-F4C7-404F-AE4B-621179086BD5} = {2553CB95-D1D3-4A74-8E41-3481E4C67DBF}
 		{1E623729-3EEC-4326-973D-E8EA6BFA7C6F} = {2553CB95-D1D3-4A74-8E41-3481E4C67DBF}
 		{53F61699-5BAB-46CB-AE3E-15282013E171} = {2553CB95-D1D3-4A74-8E41-3481E4C67DBF}
+		{6386F811-10A2-410C-8BEA-64F7FADD277C} = {2553CB95-D1D3-4A74-8E41-3481E4C67DBF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3585010-DB8B-4E1E-8B09-12530C3A7E14}

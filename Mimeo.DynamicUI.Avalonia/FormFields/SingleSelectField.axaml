@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:localFormFields="clr-namespace:Mimeo.DynamicUI.Avalonia.FormFields;assembly=Mimeo.DynamicUI.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Mimeo.DynamicUI.Avalonia.SingleSelectField"
+			 x:Name="SingleSelectFieldElement">
+	<ItemsControl x:Name="ItemsControl" ItemsSource="{Binding #SingleSelectFieldElement.Items}">
+		<ItemsControl.ItemTemplate>
+			<DataTemplate>
+				<!--Group name is too broad; multiple instances of this control that reference the same property will conflict with each other-->
+				<RadioButton Content="{Binding Name, Converter={StaticResource StringLocalizer}}"
+							 GroupName="{Binding #SingleSelectFieldElement.DataContext.FormFieldDefinition.LanguageKey}"
+							 IsChecked="{Binding IsSelected}">
+					<RadioButton.IsEnabled>
+						<MultiBinding Converter="{x:Static BoolConverters.Or}">
+							<Binding Path="!#SingleSelectFieldElement.DataContext.FormFieldDefinition.ReadOnly" />
+							<Binding Path="!#SingleSelectFieldElement.DataContext.FormFieldDefinition.Disabled" />
+						</MultiBinding>
+					</RadioButton.IsEnabled>
+				</RadioButton>
+			</DataTemplate>
+		</ItemsControl.ItemTemplate>
+	</ItemsControl>
+</UserControl>

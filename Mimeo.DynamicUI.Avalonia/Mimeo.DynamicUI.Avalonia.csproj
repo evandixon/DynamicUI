@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.0" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="11.3.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
+    <PackageReference Include="NodaTime" Version="3.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mimeo.DynamicUI\Mimeo.DynamicUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DefaultLanguage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultLanguage.resx</DependentUpon>
+    </Compile>
+    <Compile Update="FormFields\ComboboxField.axaml.cs">
+      <DependentUpon>ComboboxField.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="FormFields\MultiSelectField.axaml.cs">
+      <DependentUpon>MultiSelectField.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="FormFields\TimeField.axaml.cs">
+      <DependentUpon>TimeField.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="FormFields\DateField.axaml.cs">
+      <DependentUpon>DateField.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="FormFields\DecimalField.axaml.cs">
+      <DependentUpon>DecimalField.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="FormFields\IntegerField.axaml.cs">
+      <DependentUpon>IntegerField.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\DynamicTabControlEditForm.axaml.cs">
+      <DependentUpon>DynamicTabControlEditForm.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="DefaultLanguage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DefaultLanguage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

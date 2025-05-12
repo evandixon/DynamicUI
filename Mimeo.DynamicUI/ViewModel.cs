@@ -1,11 +1,19 @@
 ﻿using Mimeo.DynamicUI.Data;
 using Mimeo.DynamicUI.Extensions;
+using System.ComponentModel;
 using System.Linq.Expressions;
 
 namespace Mimeo.DynamicUI
 {
-    public abstract class ViewModel
+    public abstract class ViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public virtual object? GetValue(FormFieldDefinition field)
         {
             var property = this.GetType().GetProperty(field.PropertyName);
@@ -26,7 +34,8 @@ namespace Mimeo.DynamicUI
             }
 
             property.SetValue(this, value);
-            field?.OnValueChanged?.Invoke(value);
+            field.OnValueChanged?.Invoke(value);
+            RaisePropertyChanged(field.PropertyName);
         }
 
         /// <summary>
@@ -48,6 +57,8 @@ namespace Mimeo.DynamicUI
             return _dropdownListForm;
         }
         private Dictionary<string, FormFieldDefinition>? _dropdownListForm;
+
+        public IEnumerable<FormFieldDefinition> EditFormFields => GetEditForm().Values;
 
         public Dictionary<string, FormFieldDefinition> GetEditForm()
         {
@@ -109,7 +120,10 @@ namespace Mimeo.DynamicUI
         /// <summary>
         /// Gets fields that should show up in an edit form for a single view model
         /// </summary>
-        protected abstract IEnumerable<FormFieldDefinition> GetEditFormFields();
+        protected virtual IEnumerable<FormFieldDefinition> GetEditFormFields()
+        {
+            return Enumerable.Empty<FormFieldDefinition>();
+        }
 
         public FormFieldDefinition FormField(FormFieldType type, Expression<Func<object?>> @for, bool readOnly = false, bool sortable = true, bool collapsed = false, SortDirection defaultSort = SortDirection.None, bool filterable = true, string? customLanguageKey = null)
         {
@@ -137,7 +151,6 @@ namespace Mimeo.DynamicUI
                 Items = items
             }.WithCustomLanguageKey(customLanguageKey);
         }
-
 
         public FormFieldDefinition FormField(Expression<Func<bool?>> @for, bool readOnly = false, bool sortable = true, bool collapsed = false, SortDirection defaultSort = SortDirection.None, bool filterable = true, string? customLanguageKey = null)
         {

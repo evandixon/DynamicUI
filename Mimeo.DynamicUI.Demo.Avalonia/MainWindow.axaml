@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:mimeoDUI="clr-namespace:Mimeo.DynamicUI;assembly=Mimeo.DynamicUI"
+		xmlns:mimeoForms="clr-namespace:Mimeo.DynamicUI.Avalonia.Forms;assembly=Mimeo.DynamicUI.Avalonia"
+		xmlns:demo="clr-namespace:Mimeo.DynamicUI.Demo.Avalonia;assembly=Mimeo.DynamicUI.Demo.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Mimeo.DynamicUI.Demo.Avalonia.MainWindow"
+		x:DataType="demo:MainWindowViewModel"
+        Title="Mimeo.DynamicUI.Demo.Avalonia">
+
+	<Design.DataContext>
+		<demo:MainWindowViewModel/>
+	</Design.DataContext>
+	
+	<TabControl>
+		<TabItem Header="Dynamic Edit Form">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<mimeoForms:DynamicEditForm Grid.Column="0" DataContext="{Binding DynamicEditFormViewModel}" />
+				<mimeoForms:DynamicEditForm Grid.Column="1" DataContext="{Binding DynamicEditFormViewModel}" />
+			</Grid>
+		</TabItem>
+	</TabControl>
+</Window>

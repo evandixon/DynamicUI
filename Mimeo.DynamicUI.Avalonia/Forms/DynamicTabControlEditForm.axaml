@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:dynamicUI="clr-namespace:Mimeo.DynamicUI;assembly=Mimeo.DynamicUI"
+			 xmlns:local="clr-namespace:Mimeo.DynamicUI.Avalonia;assembly=Mimeo.DynamicUI.Avalonia"
+			 xmlns:localControls="clr-namespace:Mimeo.DynamicUI.Avalonia.Controls;assembly=Mimeo.DynamicUI.Avalonia"
+			 xmlns:localForms="clr-namespace:Mimeo.DynamicUI.Avalonia.Forms;assembly=Mimeo.DynamicUI.Avalonia"
+			 xmlns:localFormFields="clr-namespace:Mimeo.DynamicUI.Avalonia.FormFields;assembly=Mimeo.DynamicUI.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Mimeo.DynamicUI.Avalonia.Forms.DynamicTabControlEditForm"
+			 x:DataType="dynamicUI:ViewModel"
+			 x:Name="DynamicTabControlEditFormUserControl">
+	<UserControl.DataTemplates>
+		<localFormFields:FormFieldViewLocator />
+	</UserControl.DataTemplates>
+	<UserControl.Resources>
+		<localFormFields:FormFieldDefinitionViewModelConverter x:Key="formFieldConverter" />
+	</UserControl.Resources>
+
+	<TabControl ItemsSource="{Binding EditFormFields}" TabStripPlacement="Left">
+		<TabControl.ItemTemplate>
+			<DataTemplate>
+				<Label Content="{Binding LanguageKey, Converter={StaticResource StringLocalizer}}"/>
+			</DataTemplate>
+		</TabControl.ItemTemplate>
+		<TabControl.ContentTemplate>
+			<DataTemplate>
+				<ContentControl>
+					<ContentControl.Content>
+						<MultiBinding Converter="{StaticResource formFieldConverter}">
+							<Binding Path="." />
+							<Binding ElementName="DynamicTabControlEditFormUserControl" Path="DataContext" />
+						</MultiBinding>
+					</ContentControl.Content>
+				</ContentControl>
+			</DataTemplate>
+		</TabControl.ContentTemplate>
+	</TabControl>
+</UserControl>

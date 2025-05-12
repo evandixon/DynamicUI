@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:localFormFields="clr-namespace:Mimeo.DynamicUI.Avalonia.FormFields;assembly=Mimeo.DynamicUI.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Mimeo.DynamicUI.Avalonia.GuidField"
+			 x:Name="GuidFieldElement">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="150" />
+		</Grid.ColumnDefinitions>
+		<TextBox Grid.Column="0" Text="{Binding #GuidFieldElement.ValueString}" />
+		<Button Grid.Column="1" Content="Generate GUID" Click="OnGuidGenerateClick"/>
+	</Grid>
+</UserControl>
