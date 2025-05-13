@@ -19,10 +19,8 @@
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*" />
-					<ColumnDefinition Width="*" />
 				</Grid.ColumnDefinitions>
 				<mimeoForms:DynamicEditForm Grid.Column="0" DataContext="{Binding DynamicEditFormViewModel}" />
-				<mimeoForms:DynamicEditForm Grid.Column="1" DataContext="{Binding DynamicEditFormViewModel}" />
 			</Grid>
 		</TabItem>
 	</TabControl>

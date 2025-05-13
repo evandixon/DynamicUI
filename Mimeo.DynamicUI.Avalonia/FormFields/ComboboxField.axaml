@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:localFormFields="clr-namespace:Mimeo.DynamicUI.Avalonia.FormFields;assembly=Mimeo.DynamicUI.Avalonia"
 			 xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
-			 xmlns:bh="using:TestAutoCompleteBehaviour.Behaviours"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Mimeo.DynamicUI.Avalonia.ComboboxField"
 			 x:DataType="localFormFields:FormFieldViewModel">

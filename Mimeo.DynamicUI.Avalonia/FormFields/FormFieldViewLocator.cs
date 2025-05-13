@@ -33,6 +33,8 @@ namespace Mimeo.DynamicUI.Avalonia.FormFields
                     return new DateField();
                 case FormFieldType.Time:
                     return new TimeField();
+                case FormFieldType.Color:
+                    return new ColorField();
                 case FormFieldType.Integer:
                     return new IntegerField();
                 case FormFieldType.Decimal:
