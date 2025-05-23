@@ -26,14 +26,10 @@
 		</TabControl.ItemTemplate>
 		<TabControl.ContentTemplate>
 			<DataTemplate>
-				<ContentControl>
-					<ContentControl.Content>
-						<MultiBinding Converter="{StaticResource formFieldConverter}">
-							<Binding Path="." />
-							<Binding ElementName="DynamicTabControlEditFormUserControl" Path="DataContext" />
-						</MultiBinding>
-					</ContentControl.Content>
-				</ContentControl>
+				<localFormFields:DynamicField Grid.Column="1" Grid.Row="0"
+				                              ViewModel="{Binding #DynamicTabControlEditFormUserControl.DataContext}"
+				                              FormField="{Binding .}"/>
+
 			</DataTemplate>
 		</TabControl.ContentTemplate>
 	</TabControl>

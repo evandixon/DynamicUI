@@ -18,7 +18,11 @@
         Color,
         Integer,
         Decimal,
+        [Obsolete("Use Table, SectionList, or ReorderableSectionList instead")]
         List,
+        Table,
+        SectionList,
+        ReorderableSectionList,
         Nullable,
         Guid,
         Section,

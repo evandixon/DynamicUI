@@ -39,6 +39,8 @@ namespace Mimeo.DynamicUI.Avalonia.FormFields
                     return new IntegerField();
                 case FormFieldType.Decimal:
                     return new DecimalField();
+                case FormFieldType.Table:
+                    return new TableField();
                 case FormFieldType.Guid:
                     return new GuidField();
                 case FormFieldType.Section:

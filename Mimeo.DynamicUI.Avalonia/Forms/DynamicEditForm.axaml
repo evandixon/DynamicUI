@@ -34,14 +34,9 @@
 							</Grid.RowDefinitions>
 
 							<Label Content="{Binding LanguageKey, Converter={StaticResource StringLocalizer}}" Grid.Column="0" Grid.Row="0"/>
-							<ContentControl Grid.Column="1" Grid.Row="0">
-								<ContentControl.Content>
-									<MultiBinding Converter="{StaticResource formFieldConverter}">
-										<Binding Path="." />
-										<Binding ElementName="DynamicEditFormUserControl" Path="DataContext" />
-									</MultiBinding>
-								</ContentControl.Content>
-							</ContentControl>
+							<localFormFields:DynamicField Grid.Column="1" Grid.Row="0"
+							                              ViewModel="{Binding #DynamicEditFormUserControl.DataContext}"
+							                              FormField="{Binding .}"/>
 							<Label Content="{Binding DescriptionLanguageKey, Converter={StaticResource StringLocalizer}}" IsVisible="{Binding DescriptionLanguageKey, Converter={StaticResource IsLocalizationDefinedController}}" Grid.Column="1" Grid.Row="1"/>
 						</Grid>
 					</DataTemplate>

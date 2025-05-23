@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Mimeo.DynamicUI
 {
-    public abstract class ViewModel : INotifyPropertyChanged
+    public class ViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

@@ -191,7 +191,7 @@ namespace Mimeo.DynamicUI.Demo.Shared.ViewModels
             yield return FormField(() => SimpleModelList, mode: ListFieldPresentationMode.Table);
 
             // but for sufficiently large view models, a section list is easier on the user
-            yield return FormField(() => AdvancedModelList, m => m.FormField(() => m.Property1), mode: ListFieldPresentationMode.SectionList);
+            yield return FormField(() => AdvancedModelList, m => m.FormField(() => m.Property1), mode: ListFieldPresentationMode.Table);
 
             yield return new SingleSelectDropDownFormFieldDefinition(() => RelatedModelId, relatedModelsSource, FormField(() => Name), idField);
             yield return new MultiSelectDropDownFormFieldDefinition(() => RelatedModelIds, relatedModelsSource, FormField(() => Name), idField);
